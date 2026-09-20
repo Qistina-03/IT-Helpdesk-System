@@ -98,6 +98,227 @@ The `tickets` table stores support requests, while `comments` stores communicati
 | GET    | `/api/tickets/:id/comments` | Retrieve ticket comments            |
 | POST   | `/api/tickets/:id/comments` | Add a ticket comment                |
 
+**Authentication**
+
+Requires a valid JWT token in the request header.
+
+```text
+Authorization: Bearer JWT_TOKEN
+```
+
+**Request Body**
+
+```json
+{
+  "title": "Computer cannot connect to Wi-Fi",
+  "description": "The computer is unable to connect to the office Wi-Fi.",
+  "priority": "High",
+  "category_id": 1
+}
+```
+
+**Response — 201 Created**
+
+```json
+{
+  "message": "Ticket created successfully",
+  "ticketId": 7
+}
+```
+
+**Access Control**
+
+* Authenticated users can create support tickets.
+* The ticket creator is automatically identified from the authenticated user.
+
+---
+
+### Update Ticket Status
+
+#### PATCH `/api/tickets/:id/status`
+
+Update the status of a support ticket.
+
+**Authentication**
+
+Requires a valid JWT token in the request header.
+
+```text
+Authorization: Bearer JWT_TOKEN
+```
+
+**Request Body**
+
+```json
+{
+  "status": "In Progress"
+}
+```
+
+**Response — 200 OK**
+
+```json
+{
+  "message": "Ticket status updated successfully"
+}
+```
+
+**Allowed Statuses**
+
+* Open
+* In Progress
+* Resolved
+* Closed
+
+**Access Control**
+
+* Admin users can update any ticket.
+* Regular users can update their own tickets.
+
+---
+
+### Assign Technician
+
+#### PATCH `/api/tickets/:id/assign`
+
+Assign a support ticket to a technician.
+
+**Authentication**
+
+Requires a valid JWT token in the request header.
+
+```text
+Authorization: Bearer JWT_TOKEN
+```
+
+**Request Body**
+
+```json
+{
+  "assigned_to": 1
+}
+```
+
+**Response — 200 OK**
+
+```json
+{
+  "message": "Technician assigned successfully"
+}
+```
+
+**Access Control**
+
+* Only admin users can assign technicians.
+
+---
+
+### Get Available Technicians
+
+#### GET `/api/users`
+
+Retrieve the available technicians in the system.
+
+**Authentication**
+
+Requires a valid JWT token in the request header.
+
+```text
+Authorization: Bearer JWT_TOKEN
+```
+
+**Response — 200 OK**
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Demo User",
+    "email": "demo@example.com",
+    "role": "user"
+  }
+]
+```
+
+**Access Control**
+
+* Only admin users can retrieve the technician list.
+
+---
+
+### Get Ticket Comments
+
+#### GET `/api/tickets/:id/comments`
+
+Retrieve all comments associated with a specific ticket.
+
+**Authentication**
+
+Requires a valid JWT token in the request header.
+
+```text
+Authorization: Bearer JWT_TOKEN
+```
+
+**Response — 200 OK**
+
+```json
+[
+  {
+    "id": 1,
+    "comment": "Testing ticket comment system",
+    "created_at": "2026-09-17T10:00:00.000Z",
+    "user_name": "Admin IT",
+    "user_role": "admin"
+  }
+]
+```
+
+**Access Control**
+
+* Admin users can view comments on any ticket.
+* Regular users can view comments only on their own tickets.
+
+---
+
+### Add Ticket Comment
+
+#### POST `/api/tickets/:id/comments`
+
+Add a comment to a specific support ticket.
+
+**Authentication**
+
+Requires a valid JWT token in the request header.
+
+```text
+Authorization: Bearer JWT_TOKEN
+```
+
+**Request Body**
+
+```json
+{
+  "comment": "The issue has been checked and is currently being investigated."
+}
+```
+
+**Response — 201 Created**
+
+```json
+{
+  "message": "Comment added successfully"
+}
+```
+
+**Access Control**
+
+* Admin users can add comments to any ticket.
+* Regular users can add comments only to their own tickets.
+
+
+
+
 ## Ticket Workflow
 
 ```text
@@ -109,6 +330,8 @@ Resolved
   ↓
 Closed
 ```
+
+
 
 ## Ticket Priorities
 
