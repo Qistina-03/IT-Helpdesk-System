@@ -7,134 +7,276 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Admin Dashboard</title>
+    <title>Admin Dashboard - IT Helpdesk</title>
 
     <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 
-<body>
+<body class="admin-page">
 
-    <header>
+    <!-- =========================
+         HEADER
+    ========================= -->
 
-        <h1>IT Helpdesk - Admin Dashboard</h1>
+    <header class="admin-header">
 
-        <button id="logoutButton">
+        <div>
+
+            <h1>IT Helpdesk</h1>
+
+            <p>Admin Dashboard</p>
+
+        </div>
+
+
+        <button
+            id="logoutButton"
+            class="logout-button"
+        >
             Logout
         </button>
 
     </header>
 
 
-    <main>
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
 
-        <h2>All Tickets</h2>
-
-
-        <!-- SEARCH -->
-
-        <div class="filters">
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search tickets..."
-            >
+    <main class="admin-container">
 
 
-            <!-- STATUS FILTER -->
+        <div class="page-title">
 
-            <select id="statusFilter">
+            <div>
 
-                <option value="All">
-                    All Status
-                </option>
+                <h2>All Tickets</h2>
 
-                <option value="Open">
-                    Open
-                </option>
+                <p>
+                    Manage and monitor IT support requests
+                </p>
 
-                <option value="In Progress">
-                    In Progress
-                </option>
-
-                <option value="Resolved">
-                    Resolved
-                </option>
-
-                <option value="Closed">
-                    Closed
-                </option>
-
-            </select>
-
-
-            <!-- PRIORITY FILTER -->
-
-            <select id="priorityFilter">
-
-                <option value="All">
-                    All Priority
-                </option>
-
-                <option value="Low">
-                    Low
-                </option>
-
-                <option value="Medium">
-                    Medium
-                </option>
-
-                <option value="High">
-                    High
-                </option>
-
-                <option value="Critical">
-                    Critical
-                </option>
-
-            </select>
+            </div>
 
         </div>
 
 
-        <!-- TICKET TABLE -->
+        <!-- =========================
+             SUMMARY CARDS
+        ========================= -->
 
-        <table>
-
-            <thead>
-
-                <tr>
-
-                    <th>ID</th>
-
-                    <th>Title</th>
-
-                    <th>Category</th>
-
-                    <th>Priority</th>
-
-                    <th>Status</th>
-
-                    <th>Created By</th>
-
-                    <th>Assigned To</th>
-
-                    <th>Action</th>
-
-                    <th>Created At</th>
-
-                </tr>
-
-            </thead>
+        <section class="summary-cards">
 
 
-            <tbody id="ticketTableBody">
+            <div class="summary-card">
 
-            </tbody>
+                <div class="summary-card-label">
+                    Total Tickets
+                </div>
 
-        </table>
+                <div
+                    class="summary-card-number"
+                    id="totalTickets"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-card-label">
+                    Open
+                </div>
+
+                <div
+                    class="summary-card-number"
+                    id="openTickets"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-card-label">
+                    In Progress
+                </div>
+
+                <div
+                    class="summary-card-number"
+                    id="inProgressTickets"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-card-label">
+                    Resolved
+                </div>
+
+                <div
+                    class="summary-card-number"
+                    id="resolvedTickets"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             FILTER SECTION
+        ========================= -->
+
+        <section class="filter-card">
+
+            <div class="filter-title">
+
+                <h3>Search & Filter</h3>
+
+            </div>
+
+
+            <div class="filters">
+
+
+                <div class="search-wrapper">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search tickets..."
+                    >
+
+                </div>
+
+
+                <select id="statusFilter">
+
+                    <option value="All">
+                        All Status
+                    </option>
+
+                    <option value="Open">
+                        Open
+                    </option>
+
+                    <option value="In Progress">
+                        In Progress
+                    </option>
+
+                    <option value="Resolved">
+                        Resolved
+                    </option>
+
+                    <option value="Closed">
+                        Closed
+                    </option>
+
+                </select>
+
+
+                <select id="priorityFilter">
+
+                    <option value="All">
+                        All Priority
+                    </option>
+
+                    <option value="Low">
+                        Low
+                    </option>
+
+                    <option value="Medium">
+                        Medium
+                    </option>
+
+                    <option value="High">
+                        High
+                    </option>
+
+                    <option value="Critical">
+                        Critical
+                    </option>
+
+                </select>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TICKET TABLE
+        ========================= -->
+
+        <section class="table-card">
+
+            <div class="table-header">
+
+                <h3>Ticket Management</h3>
+
+                <span id="ticketCount">
+                    0 tickets
+                </span>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Title</th>
+
+                            <th>Category</th>
+
+                            <th>Priority</th>
+
+                            <th>Status</th>
+
+                            <th>Created By</th>
+
+                            <th>Assigned To</th>
+
+                            <th>Action</th>
+
+                            <th>Created At</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="ticketTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
 
     </main>
 

@@ -129,6 +129,8 @@ async function loadTickets() {
 
         allTickets = tickets;
 
+        updateSummaryCards(allTickets);
+
         displayTickets(allTickets);
 
     } catch (error) {
@@ -138,6 +140,44 @@ async function loadTickets() {
             error
         );
     }
+}
+
+// =========================
+// UPDATE SUMMARY CARDS
+// =========================
+
+function updateSummaryCards(tickets) {
+
+    const totalTickets =
+        tickets.length;
+
+    const openTickets =
+        tickets.filter(
+            ticket => ticket.status === "Open"
+        ).length;
+
+    const inProgressTickets =
+        tickets.filter(
+            ticket => ticket.status === "In Progress"
+        ).length;
+
+    const resolvedTickets =
+        tickets.filter(
+            ticket => ticket.status === "Resolved"
+        ).length;
+
+
+    document.getElementById("totalTickets").textContent =
+        totalTickets;
+
+    document.getElementById("openTickets").textContent =
+        openTickets;
+
+    document.getElementById("inProgressTickets").textContent =
+        inProgressTickets;
+
+    document.getElementById("resolvedTickets").textContent =
+        resolvedTickets;
 }
 
 
@@ -285,14 +325,18 @@ function displayTickets(tickets) {
 
 
             <td>
-                ${ticket.priority}
+                <span class="priority-badge priority-${ticket.priority.toLowerCase()}">
+        ${ticket.priority}
+    </span>
             </td>
 
 
             <td>
                 <select
-        class="statusSelect"
-        data-ticket-id="${ticket.id}"
+        class="statusSelect status-${ticket.status
+        .toLowerCase()
+        .replace(" ", "-")}"
+    data-ticket-id="${ticket.id}"
     >
 
         <option value="Open"

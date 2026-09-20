@@ -231,6 +231,23 @@ This project was developed as a portfolio project to practise full-stack web dev
 * Production deployment
 * Enhanced security and error handling
 
+## Screenshots
+
+### Login Page
+![Login Page](screenshots/login-page.png)
+
+### User Dashboard
+![User Dashboard](screenshots/Dashboard.png)
+
+### Create Ticket
+![Create Ticket](screenshots/create-ticket.png)
+
+### Ticket Details
+![Ticket Details](screenshots/ticket-details.png)
+
+### Admin Dashboard
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
 ## Author
 
 **Qistina**
