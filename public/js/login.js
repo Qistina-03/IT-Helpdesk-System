@@ -31,19 +31,23 @@ loginForm.addEventListener("submit", async function(event) {
 
         if (response.ok) {
 
-            alert("Login successful!");
+    alert("Login successful!");
 
-            localStorage.setItem("token", result.token);
+    localStorage.setItem("token", result.token);
 
-            console.log(result);
+    console.log(result);
 
-            window.location.href = "dashboard.html";
+    if (result.user.role === "admin") {
+        window.location.href = "admin-dashboard.html";
+    } else {
+        window.location.href = "dashboard.html";
+    }
 
-        } else {
+} else {
 
-            alert(result.error);
+    alert(result.error);
 
-        }
+}
 
     } catch (error) {
 
