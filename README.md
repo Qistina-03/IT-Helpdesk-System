@@ -374,6 +374,7 @@ Create a `.env` file in the project root:
 
 ```env
 JWT_SECRET=your-secret-key
+MYSQL_PASSWORD=your-mysql-password
 ```
 
 ### 5. Configure MySQL
@@ -428,7 +429,6 @@ IT-Helpdesk-System/
 │   ├── login.html
 │   └── ticket-details.html
 │
-├── .env
 ├── .gitignore
 ├── db.js
 ├── package.json
