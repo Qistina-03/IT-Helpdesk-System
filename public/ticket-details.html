@@ -39,9 +39,9 @@
 
                 </div>
 
-                <a href="dashboard.html" class="btn">
-                    ← Back to Dashboard
-                </a>
+                <button id="backToDashboardButton" class="btn">
+                         ← Back to Dashboard
+                </button>
 
             </div>
 
@@ -194,6 +194,39 @@
 
 
     <script src="js/ticket-details.js"></script>
+
+    <script>
+    const backButton =
+        document.getElementById("backToDashboardButton");
+
+    const backToken =
+        localStorage.getItem("token");
+
+    if (backToken) {
+
+        const payload =
+            JSON.parse(
+                atob(token.split(".")[1])
+            );
+
+        if (payload.role === "admin") {
+
+            backButton.onclick = function() {
+                window.location.href =
+                    "admin-dashboard.html";
+            };
+
+        } else {
+
+            backButton.onclick = function() {
+                window.location.href =
+                    "dashboard.html";
+            };
+
+        }
+
+    }
+</script>
 
 </body>
 
