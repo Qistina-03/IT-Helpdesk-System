@@ -233,6 +233,9 @@ This project was developed as a portfolio project to practise full-stack web dev
 
 ## Screenshots
 
+### Entity Relationship Diagram
+![Entity Relationship Diagram](screenshots/IT-Helpdesk-ERD.png)
+
 ### Login Page
 ![Login Page](screenshots/login-page.png)
 
