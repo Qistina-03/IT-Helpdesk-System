@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ticket Details - IT Helpdesk</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <h1>IT Helpdesk</h1>
+
+    </header>
+
+
+    <div class="container">
+
+        <div class="ticket-details">
+
+            <div class="ticket-details-header">
+
+                <div>
+
+                    <h2 id="ticketTitle">
+                        Ticket Details
+                    </h2>
+
+                    <p id="ticketId"></p>
+
+                </div>
+
+                <a href="dashboard.html" class="btn">
+                    ← Back to Dashboard
+                </a>
+
+            </div>
+
+
+            <div class="ticket-info">
+
+                <div class="detail-item">
+
+                    <strong>Description</strong>
+
+                    <p id="ticketDescription"></p>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <div class="detail-item">
+
+                        <strong>Priority</strong>
+
+                        <p id="ticketPriority"></p>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <strong>Status</strong>
+
+                        <select id="statusSelect">
+
+                            <option value="Open">
+                                Open
+                            </option>
+
+                            <option value="In Progress">
+                                In Progress
+                            </option>
+
+                            <option value="Resolved">
+                                Resolved
+                            </option>
+
+                            <option value="Closed">
+                                Closed
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <div class="detail-item">
+
+                        <strong>Category</strong>
+
+                        <p id="ticketCategory"></p>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <strong>Created By</strong>
+
+                        <p id="ticketCreatedBy"></p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <div class="detail-item">
+
+                        <strong>Assigned To</strong>
+
+                        <p id="ticketAssignedTo"></p>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <strong>Created At</strong>
+
+                        <p id="ticketCreatedAt"></p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <strong>Last Updated</strong>
+
+                    <p id="ticketUpdatedAt"></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             COMMENTS SECTION
+        ========================= -->
+
+        <div class="comments-section">
+
+            <h3>Comments</h3>
+
+
+            <div id="commentsList">
+
+                <p>Loading comments...</p>
+
+            </div>
+
+
+            <div class="add-comment">
+
+                <textarea
+                    id="commentInput"
+                    placeholder="Write a comment..."
+                    rows="4"
+                ></textarea>
+
+
+                <button
+                    id="addCommentButton"
+                    class="btn"
+                >
+                    Add Comment
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/ticket-details.js"></script>
+
+</body>
+
+</html>

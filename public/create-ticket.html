@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Ticket - IT Helpdesk</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <div class="ticket-form">
+
+            <h1>Create a Ticket</h1>
+
+            <p class="form-subtitle">
+                Submit your technical issue to the IT support team.
+            </p>
+
+
+            <form id="ticketForm">
+
+                <!-- Ticket Title -->
+
+                <div class="form-group">
+
+                    <label for="title">
+                        Ticket Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="Example: Cannot connect to WiFi"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Description -->
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        rows="6"
+                        placeholder="Describe your problem..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Category -->
+
+                <div class="form-group">
+
+                    <label for="category">
+                        Category
+                    </label>
+
+                    <select id="category" required>
+
+                        <option value="">
+                            Select a category
+                        </option>
+
+                        <option value="1">
+                            Network
+                        </option>
+
+                        <option value="2">
+                            Hardware
+                        </option>
+
+                        <option value="3">
+                            Software
+                        </option>
+
+                        <option value="4">
+                            Account
+                        </option>
+
+                        <option value="5">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Priority -->
+
+                <div class="form-group">
+
+                    <label for="priority">
+                        Priority
+                    </label>
+
+                    <select id="priority" required>
+
+                        <option value="">
+                            Select priority
+                        </option>
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                        <option value="Critical">
+                            Critical
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Submit Button -->
+
+                <button
+                    type="submit"
+                    class="login-btn"
+                >
+                    Submit Ticket
+                </button>
+
+
+                <!-- Back Link -->
+
+                <p class="back-link">
+
+                    <a href="index.html">
+                        ← Back to Home
+                    </a>
+
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+<script src="js/create-ticket.js"></script>
+
+</body>
+
+</html>

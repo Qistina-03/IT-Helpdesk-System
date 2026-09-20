@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - IT Helpdesk</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <h1>IT Helpdesk Dashboard</h1>
+
+    </header>
+
+
+    <div class="container">
+
+        <div class="dashboard-header">
+
+    <div>
+        <h2>My Tickets</h2>
+
+        <p>
+            View and manage your support tickets.
+        </p>
+    </div>
+
+
+    <div>
+
+        <a href="create-ticket.html" class="btn">
+            + Create Ticket
+        </a>
+
+        <button id="logoutBtn" class="btn">
+            Logout
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Search and Filters -->
+
+<div class="ticket-filters">
+
+    <div class="filter-group">
+
+        <label for="searchInput">
+            Search
+        </label>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search ticket title..."
+        >
+
+    </div>
+
+
+    <div class="filter-group">
+
+        <label for="statusFilter">
+            Status
+        </label>
+
+        <select id="statusFilter">
+
+            <option value="all">
+                All Status
+            </option>
+
+            <option value="Open">
+                Open
+            </option>
+
+            <option value="In Progress">
+                In Progress
+            </option>
+
+            <option value="Resolved">
+                Resolved
+            </option>
+
+            <option value="Closed">
+                Closed
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="filter-group">
+
+        <label for="priorityFilter">
+            Priority
+        </label>
+
+        <select id="priorityFilter">
+
+            <option value="all">
+                All Priority
+            </option>
+
+            <option value="Low">
+                Low
+            </option>
+
+            <option value="Medium">
+                Medium
+            </option>
+
+            <option value="High">
+                High
+            </option>
+
+            <option value="Critical">
+                Critical
+            </option>
+
+        </select>
+
+    </div>
+
+</div>
+
+        <div class="ticket-table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Title</th>
+
+                        <th>Priority</th>
+
+                        <th>Status</th>
+
+                        <th>Category</th>
+
+                        <th>Created By</th>
+
+                        <th>Assigned To</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="ticketTableBody">
+
+                    <!-- Tickets will be loaded here -->
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
