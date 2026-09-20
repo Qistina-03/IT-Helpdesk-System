@@ -618,13 +618,48 @@ app.get("/api/tickets/:id/comments", authenticateToken, (req, res) => {
 app.post("/api/tickets", authenticateToken, (req, res) => {
 
     const {
-    title,
-    description,
-    priority,
-    category_id
-} = req.body;
+        title,
+        description,
+        priority,
+        category_id
+    } = req.body;
 
-const created_by = req.user.id;
+    const created_by = req.user.id;
+
+
+    // Validate required fields
+
+    if (
+        !title ||
+        !description ||
+        !priority ||
+        !category_id
+    ) {
+
+        return res.status(400).json({
+            error: "Title, description, priority and category are required"
+        });
+
+    }
+
+
+    // Validate priority
+
+    const allowedPriorities = [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+    ];
+
+
+    if (!allowedPriorities.includes(priority)) {
+
+        return res.status(400).json({
+            error: "Invalid priority"
+        });
+
+    }
 
 
     const sql = `
@@ -641,8 +676,8 @@ const created_by = req.user.id;
 
 
     const values = [
-        title,
-        description,
+        title.trim(),
+        description.trim(),
         priority,
         category_id,
         created_by
@@ -652,11 +687,13 @@ const created_by = req.user.id;
     db.query(sql, values, (err, result) => {
 
         if (err) {
+
             console.error(err);
 
             return res.status(500).json({
                 error: "Failed to create ticket"
             });
+
         }
 
 
